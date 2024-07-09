@@ -1,1 +1,1 @@
-Project 0-strace_is_your_friend.pp
+# Solution to tasks on 0x17. Web stack debugging #3

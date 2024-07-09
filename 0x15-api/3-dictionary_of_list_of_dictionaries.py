@@ -1,25 +1,31 @@
 #!/usr/bin/python3
-'''
-A script to export data in the JSON format
-'''
+"""Accessing a REST API for todo lists of employees"""
+
 import json
 import requests
+import sys
+
 
 if __name__ == '__main__':
     url = "https://jsonplaceholder.typicode.com/users"
-    us = requests.get(url, verify=False).json()
-    undoc = {}
-    udoc = {}
-    for user in us:
-        uid = user.get("id")
-        udoc[uid] = []
-        undoc[uid] = user.get("username")
-    url = "https://jsonplaceholder.typicode.com/todos"
-    todo = requests.get(url, verify=False).json()
-    [udoc.get(t.get("userId")).append({"task": t.get("title"),
-                                       "completed": t.get("completed"),
-                                       "username": undoc.get(
-                                               t.get("userId"))})
-     for t in todo]
-    with open("todo_all_employees.json", 'w') as jsf:
-        json.dump(udoc, jsf)
+
+    response = requests.get(url)
+    users = response.json()
+
+    dictionary = {}
+    for user in users:
+        user_id = user.get('id')
+        username = user.get('username')
+        url = 'https://jsonplaceholder.typicode.com/users/{}'.format(user_id)
+        url = url + '/todos/'
+        response = requests.get(url)
+        tasks = response.json()
+        dictionary[user_id] = []
+        for task in tasks:
+            dictionary[user_id].append({
+                "task": task.get('title'),
+                "completed": task.get('completed'),
+                "username": username
+            })
+    with open('todo_all_employees.json', 'w') as file:
+        json.dump(dictionary, file)

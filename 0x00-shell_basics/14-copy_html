@@ -1,17 +1,2 @@
 #!/bin/bash
-
-source_dir=$(pwd)
-target_dir=$(dirname "$source_dir")
-
-for file in "$source_dir"/*.html; do
-    filename=$(basename "$file")
-    target_file="$target_dir/$filename"
-
-    if [ ! -e "$target_file" ] || [ "$file" -nt "$target_file" ]; then
-        cp "$file" "$target_file"
-        echo "Copied $filename to $target_dir"
-    else
-        echo "Skipped $filename (already exists in $target_dir)"
-    fi
-done
-
+cp -rua *.html ../
