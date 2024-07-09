@@ -1,2 +1,2 @@
-a script that prints the absolute path name of the current working directory
-A script to display the contents list of your current directory
+#!/bin/bash
+0x00-shell_basics script prints the absolute path name of the current working directory. \n

@@ -1,1 +1,1 @@
-# Solutions to tasks on Configuration management
+Learning to use puppet configuration management

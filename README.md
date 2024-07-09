@@ -1,1 +1,2 @@
-Shell project for ALX
+#!/bin/bash
+This repository is to test executable commands

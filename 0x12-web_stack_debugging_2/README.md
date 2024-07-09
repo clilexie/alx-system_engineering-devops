@@ -1,1 +1,1 @@
-# Solutions to tasks on Web stack debugging #2
+project 0x12-web_stack_debugging_2

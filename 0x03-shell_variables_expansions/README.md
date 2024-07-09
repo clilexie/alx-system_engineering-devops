@@ -1,1 +1,1 @@
-Projects on Shell variables and shell expansions
+please read this file as it contains explanations to the codes

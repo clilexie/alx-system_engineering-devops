@@ -1,1 +1,1 @@
-# Solutions to tasks on Networking basics #0
+# Networking basics #0
